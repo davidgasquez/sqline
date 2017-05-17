@@ -1,7 +1,6 @@
 # SQLine
 
-Command line tool to perform database queries. With `sqline` you can mix the
-power of Unix tools with the power of SQL.
+Command line tool to perform SQL database queries. With `sqline` you can mix the power of Unix tools with the power of SQL.
 
 ## Installation
 
@@ -19,7 +18,7 @@ You need to set the following environment variables:
 - `DB_ENDPOINT`
 - `DB_NAME`
 - `DB_PORT`
-- `DB_DIALECT`
+- [`DB_DIALECT`](http://docs.sqlalchemy.org/en/latest/core/engines.html): Engine and driver for SQLAlchemy.
 
 ## Usage
 
