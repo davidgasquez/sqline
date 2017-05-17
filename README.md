@@ -5,7 +5,11 @@ power of Unix tools with the power of SQL.
 
 ## Installation
 
-To install `sqline`, simply: `pip install sqline`
+To install `sqline`, simply:
+
+```bash
+pip install sqline
+```
 
 ## Requirements
 
