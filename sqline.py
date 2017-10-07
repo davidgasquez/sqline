@@ -42,6 +42,6 @@ def main(query, username, password, endpoint, name, port, dialect, output, prett
         if pretty:
             click.echo(dumps(loads(result.to_json(orient='records', lines=False)), indent=4, sort_keys=True))
         else:
-            click.echo(result.to_json(orient='records', lines=False))
+            click.echo(result.to_json(orient='records', lines=True))
     else:
         click.echo(result)
