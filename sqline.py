@@ -22,7 +22,7 @@ def get_engine_string(dialect, username, password, endpoint, name, port):
 @click.option('--port', envvar='DB_PORT')
 @click.option('--dialect', envvar='DB_DIALECT')
 @click.option('-o', '--output')
-@click.option('-p', '--pretty', type=bool, default=True)
+@click.option('-p', '--pretty', type=bool, default=True, required=False)
 def main(query, username, password, endpoint, name, port, dialect, output, pretty):
     """Console script for sqline."""
 
