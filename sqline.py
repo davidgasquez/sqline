@@ -1,12 +1,15 @@
 import click
 from sqlalchemy import create_engine
 import pandas as pd
-
+from json import dumps, loads
 
 def get_engine_string(dialect, username, password, endpoint, name, port):
-    engine = """{}://{}:{}@{}:{}/{}""".format(
-        dialect, username, password, endpoint, port, name
-    )
+    if dialect == 'sqlite':
+        engine = """sqlite:////{}""".format(name)
+    else:
+        engine = """{}://{}:{}@{}:{}/{}""".format(
+            dialect, username, password, endpoint, port, name
+        )
     return engine
 
 
@@ -19,7 +22,8 @@ def get_engine_string(dialect, username, password, endpoint, name, port):
 @click.option('--port', envvar='DB_PORT')
 @click.option('--dialect', envvar='DB_DIALECT')
 @click.option('-o', '--output')
-def main(query, username, password, endpoint, name, port, dialect, output):
+@click.option('-p', '--pretty', type=bool, default=True)
+def main(query, username, password, endpoint, name, port, dialect, output, pretty):
     """Console script for sqline."""
 
     if not query:
@@ -35,6 +39,9 @@ def main(query, username, password, endpoint, name, port, dialect, output):
     if output == 'csv':
         click.echo(result.to_csv())
     elif output == 'json':
-        click.echo(result.to_json(orient='records', lines=True))
+        if pretty:
+            click.echo(dumps(loads(result.to_json(orient='records', lines=False)), indent=4, sort_keys=True))
+        else:
+            click.echo(result.to_json(orient='records', lines=False))
     else:
         click.echo(result)
