@@ -1,5 +1,7 @@
 # SQLine
 
+[![Build Status](https://travis-ci.org/davidgasquez/sqline.svg?branch=master)](https://travis-ci.org/davidgasquez/sqline)
+
 Command line tool to perform SQL database queries. With `sqline` you can mix the power of Unix tools with the power of SQL.
 
 ## Installation
