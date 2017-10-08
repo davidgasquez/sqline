@@ -11,7 +11,7 @@ requirements = [
 
 setup(
     name='sqline',
-    version='0.1.0',
+    version='0.1.1',
     description="Command line tool to perform database queries.",
     author="David Gasquez",
     author_email='davidgasquez@gmail.com',
