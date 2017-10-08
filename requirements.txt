@@ -1,0 +1,4 @@
+click
+pandas
+sqlalchemy
+psycopg2
